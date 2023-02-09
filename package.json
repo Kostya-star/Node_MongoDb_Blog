@@ -1,0 +1,24 @@
+{
+  "name": "node_mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kostya-star/Node_MongoDb_Blog.git"
+  },
+  "author": "Constantin Danilov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kostya-star/Node_MongoDb_Blog/issues"
+  },
+  "homepage": "https://github.com/Kostya-star/Node_MongoDb_Blog#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21"
+  }
+}
