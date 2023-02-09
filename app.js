@@ -6,6 +6,8 @@ app.set('view engine', 'ejs')
 
 app.listen(3000)
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
   const blogs = [
     {title: 'The title of the blog', snippet: 'The description ot the text of the blog call it whatever u want'},
