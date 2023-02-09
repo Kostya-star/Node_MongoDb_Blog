@@ -23,16 +23,8 @@
     </ul>
   </nav>
 
-  <div class="blogs content">
-    <h2>all blogs</h2>
-    <% if (blogs.length) { %>
-      <% blogs.map(blog => { %>
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p>
-      <% }) %>
-    <% } else { %>
-      <div>No blogs to display for now</div>
-    <% } %>
+  <div class="not-found content">
+    <h2 style="color: red">OOPPPS theres been an error</h2>
   </div>
 </body>
 

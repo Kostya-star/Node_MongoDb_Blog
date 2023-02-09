@@ -23,17 +23,19 @@
     </ul>
   </nav>
 
-  <div class="blogs content">
-    <h2>all blogs</h2>
-    <% if (blogs.length) { %>
-      <% blogs.map(blog => { %>
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p>
-      <% }) %>
-    <% } else { %>
-      <div>No blogs to display for now</div>
-    <% } %>
+  <div class="create-blog content">
+    <form action="">
+      <label for="title"></label>
+      <input type="text" id="title" required>
+      <label for="snippet"></label>
+      <input type="text" id="snippet" required>
+      <label for="body"></label>
+      <input type="text" id="body" required>
+      <textarea id="body" required></textarea>
+      <button>Submit</button>
+    </form>
   </div>
+
 </body>
 
 </html>
