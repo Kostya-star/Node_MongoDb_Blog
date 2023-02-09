@@ -1,14 +1,9 @@
-const fs = require('fs')
+const http = require('http')
 
-const readStream = fs.createReadStream('./docs/blog.txt', 'utf-8')
-const writeStream = fs.createWriteStream('./docs/blog1.txt')
+const server = http.createServer((req, res) => {
+  console.log('request made');
+})
 
-// readStream.on('data', (chunk) => {
-//   console.log('-----------------------------------NEW CHUNK---------------------------------------------');
-//   console.log(chunk);
-
-//   writeStream.write('\n NEW CHUNK\n')
-//   writeStream.write(chunk)
-// })
-
-readStream.pipe(writeStream)
+server.listen(3000, 'localhost', () => {
+  console.log('listening for requests on port 3000');
+})
