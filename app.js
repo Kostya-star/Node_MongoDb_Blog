@@ -33,6 +33,18 @@ app.get('/blogs/create', (req, res) => {
   res.render('create', { title: 'Create' })
 })
 
+app.delete('/blogs/:id', (req, res) => {
+  const blogId = req.params.id
+
+  try {
+    Blog.findByIdAndDelete(blogId).then(() => {
+      res.json({ redirect: '/blogs' })
+    })
+  } catch (error) {
+    console.log(error);
+  }
+})
+
 app.get('/blogs/:id', async (req, res) => {
   const blogId = req.params.id
   
