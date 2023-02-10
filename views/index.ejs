@@ -11,7 +11,7 @@
     <h2>all blogs</h2>
     <% if (blogs.length) { %>
       <% blogs.map(blog => { %>
-        <a href='/blogs/<%= blog._id %>' class="single">
+        <a href='/blogs/<%= blog._id %>'>
           <h3 class="title"><%= blog.title %></h3>
           <p class="snippet"><%= blog.snippet %></p>
           <p class="body"><%= blog.body %></p>

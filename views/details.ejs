@@ -25,20 +25,27 @@
 
       <%- include('./partials/footer.ejs') %>
 
-      <script>
-        const deleteBtn = document.querySelector('a.delete')
+        <script>
+          const deleteBtn = document.querySelector('a.delete')
 
-        deleteBtn.addEventListener('click', e => {
-          const endpoint = `/blogs/${deleteBtn.dataset.doc}`
+          const onDeleteHandler = async (e) => {
+            const endpoint = `/blogs/${deleteBtn.dataset.doc}`
 
-          fetch(endpoint, {
-            method: 'DELETE'
-          })
-            .then((resp) => resp.json())
-            .then((data) => window.location.href = data.redirect)
-            .catch(err => console.log(err))
-        })
-      </script>
+            try {
+              const resp = await fetch(endpoint, {
+                method: 'DELETE'
+              })
+              const data = await resp.json()
+              window.location.href = data.redirect
+            } catch (error) {
+              console.log(error);
+            } finally {
+              deleteBtn.removeEventListener('click', onDeleteHandler)
+            }
+          }
+
+          deleteBtn.addEventListener('click', onDeleteHandler)
+        </script>
 
   </body>
 
