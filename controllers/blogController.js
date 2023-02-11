@@ -42,7 +42,7 @@ const blog_details_get = async (req, res) => {
     const blog = await Blog.findById(blogId)
     res.render('blogs/details', { title: 'Blog details', blog })
   } catch (error) {
-    console.log(error);
+    res.status(404).render('404', { title: 'Error' })
   }
 }
 
