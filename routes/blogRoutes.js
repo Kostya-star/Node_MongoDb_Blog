@@ -1,46 +1,18 @@
 const express = require('express')
-const Blog = require('../models/blog')
+
+const blogController = require('../controllers/blogController')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-})
+router.get('/', blogController.blog_index)
 
-router.get('/create', (req, res) => {
-  res.render('create', { title: 'Create' })
-})
+router.get('/create', blogController.blog_create)
 
-router.delete('/:id', (req, res) => {
-  const blogId = req.params.id
+router.post('/', blogController.blog_create_post)
 
-  try {
-    Blog.findByIdAndDelete(blogId).then(() => {
-      res.json({ redirect: '/blogs' })
-    })
-  } catch (error) {
-    console.log(error);
-  }
-})
+router.delete('/:id', blogController.blog_delete)
 
-router.get('/:id', async (req, res) => {
-  const blogId = req.params.id
+router.get('/:id', blogController.blog_details_get)
 
-  try {
-    const blog = await Blog.findById(blogId)
-    res.render('details', { title: 'Blog details', blog })
-  } catch (error) {
-    console.log(error);
-  }
-})
-
-router.post('/', async (req, res) => {
-  try {
-    const blog = new Blog(req.body)
-    await blog.save()
-    res.redirect('/blogs')
-  } catch (error) {
-    console.log(error);
-  }
-})
 
 module.exports = router

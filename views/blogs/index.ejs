@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include('./partials/head.ejs') %>
+<%- include('../partials/head.ejs') %>
 
 <body>
 
-  <%- include('./partials/nav.ejs') %>
+  <%- include('../partials/nav.ejs') %>
 
   <div class="blogs content">
-    <h2>all blogs</h2>
+    <h2><%= title %></h2>
     <% if (blogs.length) { %>
       <% blogs.map(blog => { %>
-        <a href='/blogs/<%= blog._id %>'>
+        <a href='/blogs/<%= blog._id %>'.>
           <h3 class="title"><%= blog.title %></h3>
           <p class="snippet"><%= blog.snippet %></p>
           <p class="body"><%= blog.body %></p>
@@ -22,7 +22,7 @@
     <% } %>
   </div>
 
-  <%- include('./partials/footer.ejs') %>
+  <%- include('../partials/footer.ejs') %>
 
 </body>
 
